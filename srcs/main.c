@@ -6,14 +6,12 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 00:22:09 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 00:35:58 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "utils.h"
-
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -31,12 +29,14 @@ int	main(int ac, char **av)
 		return (-1);
 	}
 
+	/* affiche la map --debug--
 	t_map_node	*curr = vars.map->head;
 	while (curr->next != NULL)
 	{
 		printf("%s", curr->line);
 		curr = curr->next;
 	}
+	*/
 
 	mlx_loop(vars.mlx);
 	ft_destroy_vars(&vars);
