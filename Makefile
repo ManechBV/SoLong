@@ -1,7 +1,10 @@
 SRCS = srcs/main.c \
 		srcs/ft_window.c \
 		srcs/hooks.c \
-		srcs/player.c
+		srcs/player.c \
+		srcs/map.c \
+		srcs/get_next_line.c \
+		srcs/get_next_line_utils.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g

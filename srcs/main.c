@@ -6,19 +6,40 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/18 19:17:37 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 00:22:09 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "utils.h"
 
-int	main(void)
+#include <stdio.h>
+
+int	main(int ac, char **av)
 {
 	t_vars	vars;
 
-	if (ft_init_vars(&vars) == 0)
-		mlx_loop(vars.mlx);
+	if (ft_init_vars(&vars) == -1 || ac < 2)
+	{
+		ft_destroy_vars(&vars);
+		return (-1);
+	}
+	vars.map = read_map(av[1]);
+	if (vars.map == NULL)
+	{
+		ft_destroy_vars(&vars);
+		return (-1);
+	}
+
+	t_map_node	*curr = vars.map->head;
+	while (curr->next != NULL)
+	{
+		printf("%s", curr->line);
+		curr = curr->next;
+	}
+
+	mlx_loop(vars.mlx);
 	ft_destroy_vars(&vars);
+	free_map(vars.map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 20:04:48 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/19 20:21:26 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 00:21:46 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ typedef struct	s_map
 	t_map_node		*head;
 } t_map;
 
+t_map		*ft_new_map(void);
+t_map		*read_map(char *filename);
 t_map_node	*ft_new_node(char *line);
-int			ft_add_node_to_list(t_map_node **head, t_map_node *node_to_add);
+void		ft_add_node_to_list(t_map_node *head, char *line);
+void		free_map(t_map *map);
 
 #endif

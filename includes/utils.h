@@ -6,13 +6,14 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/18 19:32:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/19 23:49:11 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
+# include "map.h"
 # include "mlx.h"
 # include <stdlib.h>
 
@@ -31,6 +32,7 @@ typedef struct	s_vars
 	mlx_window_create_info	info;
 	mlx_window				win;
 	t_player				*player;
+	t_map					*map;
 } t_vars;
 
 // ft_window.c
