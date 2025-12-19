@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/18 19:46:36 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/19 20:00:46 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ void	key_hook(int key, void *param)
 	vars = (t_vars *) param;
 	if (key == 41)
 		mlx_loop_end(vars->mlx);
-	if (key == 79)
-		vars->player->x += 20;
-	if (key == 80)
-		vars->player->x -= 20;
-	if (key == 81)
-		vars->player->y += 20;
-	if (key == 82)
-		vars->player->y -= 20;
 }
 
 void	window_hook(int event, void *param)
