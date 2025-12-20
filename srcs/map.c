@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 20:02:08 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 00:30:54 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 18:47:55 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_map	*read_map(char *filename)
 		return (NULL);
 	}
 	tmp = get_next_line(fd);
-	map->w = ft_strlen(tmp);
+	map->w = ft_strlen_gnl(tmp);
 	map->h = 0;
 	map->head = ft_new_node(tmp);
 	while (tmp != NULL)

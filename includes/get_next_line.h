@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:09:52 by mabenois          #+#    #+#             */
-/*   Updated: 2025/11/26 14:44:04 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 18:43:02 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ char	*read_buffer(int fd, char *stash, size_t buffer_size_safe);
 char	*fetch_line(char *stash);
 char	*remove_line_from_stash(char *stash);
 int		ft_contains_nl(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strlcpy(char *dst, const char *src, size_t size);
-void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+size_t	ft_strlen_gnl(const char *s);
+char	*ft_strlcpy_gnl(char *dst, const char *src, size_t size);
+void	*ft_calloc_gnl(size_t nmemb, size_t size);
 
 #endif

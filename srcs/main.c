@@ -6,12 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 00:35:58 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 19:06:18 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "utils.h"
+#include "ft_printf.h"
 
 int	main(int ac, char **av)
 {
@@ -19,7 +20,7 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 	{
-		write(1, "not enought args\n", 17);
+		ft_printf("not enought args\n");
 		return (-1);
 	}
 	if (ft_init_vars(&vars) == -1)

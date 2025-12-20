@@ -6,13 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:03:26 by mabenois          #+#    #+#             */
-/*   Updated: 2025/11/26 18:22:43 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 18:45:59 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc_gnl(size_t nmemb, size_t size)
 {
 	size_t	total_size;
 	void	*ptr;
@@ -59,7 +59,7 @@ char	*read_buffer(int fd, char *stash, size_t buffer_size_safe)
 	char	*buf;
 	int		bytes_read;
 
-	buf = ft_calloc(sizeof(char), (buffer_size_safe + 1));
+	buf = ft_calloc_gnl(sizeof(char), (buffer_size_safe + 1));
 	if (!buf)
 		return (NULL);
 	bytes_read = 1;
@@ -75,7 +75,7 @@ char	*read_buffer(int fd, char *stash, size_t buffer_size_safe)
 			return (NULL);
 		}
 		buf[bytes_read] = 0;
-		stash = ft_strjoin(stash, buf);
+		stash = ft_strjoin_gnl(stash, buf);
 		if (!stash)
 			return (NULL);
 	}
@@ -92,13 +92,13 @@ char	*fetch_line(char *stash)
 		return (NULL);
 	i = ft_contains_nl(stash);
 	if (i == -1)
-		i = ft_strlen(stash);
+		i = ft_strlen_gnl(stash);
 	else
 		i++;
 	line = malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
-	line = ft_strlcpy(line, stash, i + 1);
+	line = ft_strlcpy_gnl(line, stash, i + 1);
 	if (line[0] == 0)
 	{
 		free(line);
@@ -120,13 +120,13 @@ char	*remove_line_from_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	new_stash = malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
+	new_stash = malloc(sizeof(char) * (ft_strlen_gnl(stash) - i + 1));
 	if (!new_stash)
 	{
 		free(stash);
 		return (NULL);
 	}
-	new_stash = ft_strlcpy(new_stash, stash + i, ft_strlen(stash) - i + 1);
+	new_stash = ft_strlcpy_gnl(new_stash, stash + i, ft_strlen_gnl(stash) - i + 1);
 	free(stash);
 	return (new_stash);
 }
