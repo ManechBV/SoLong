@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/19 23:49:11 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 19:22:36 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "map.h"
+# include "map_check.h"
 # include "mlx.h"
 # include <stdlib.h>
 # include <unistd.h>

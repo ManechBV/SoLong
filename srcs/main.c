@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 19:06:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 19:24:13 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,19 @@ int	main(int ac, char **av)
 		ft_destroy_vars(&vars);
 		return (-1);
 	}
-
 	/* affiche la map --debug--
+	*/
 	t_map_node	*curr = vars.map->head;
 	while (curr->next != NULL)
 	{
-		printf("%s", curr->line);
+		ft_printf("%s", curr->line);
 		curr = curr->next;
 	}
+	/*
 	*/
+	if (ft_check_map(vars.map) != 0)
+		return (-1);
+	
 
 	mlx_loop(vars.mlx);
 	ft_destroy_vars(&vars);

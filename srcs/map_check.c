@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 18:52:48 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/20 19:32:42 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ unsigned int	ft_strcountchr(char *s, char c)
 			count++;
 		i++;
 	}
-	return (0);
+	return (count);
 }
 
 t_check	*ft_new_check(void)
@@ -50,21 +50,21 @@ int	ft_check_map(t_map *map)
 
 	check = ft_new_check();
 	if (!check)
-		return (4);
+		return (ft_check_error(4));
 	curr = map->head;
 	while (curr->next != NULL)
 	{
 		if (ft_strlen_gnl(curr->line) != map->w)
-			return (1);
+			return (ft_check_error(1));
 		check->exit += ft_strcountchr(curr->line, 'E');
 		check->start += ft_strcountchr(curr->line, 'P');
 		check->collectible += ft_strcountchr(curr->line, 'C');
 		curr = curr->next;
 	}
 	if (check->exit != 1 || check->start != 1)
-		return (2);
+		return (ft_check_error(2));
 	if (check->collectible < 1)
-		return (3);
+		return (ft_check_error(3));
 	free(check);
 	return (0);
 }
@@ -72,6 +72,12 @@ int	ft_check_map(t_map *map)
 int	ft_check_error(int i)
 {
 	if (i == 1)
-		ft_printf("test");
+		ft_printf("Error\nThe map must be rectangular.");
+	if (i == 2)
+		ft_printf("Error\nThe map must contain exactly 1 exit and 1 starting position.");
+	if (i == 3)
+		ft_printf("Error\nThe map must contain at least 1 collectible.");
+	if (i == 4)
+		ft_printf("Error\nmalloc() in ft_new_check() failed Aww maaaan!");
 	return (i);
 }
