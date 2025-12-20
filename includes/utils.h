@@ -16,6 +16,7 @@
 # include "map.h"
 # include "mlx.h"
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct	s_player
 {

@@ -7,7 +7,7 @@ SRCS = srcs/main.c \
 		srcs/get_next_line_utils.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g -no-pie
 MLX_FLAGS = MacroLibX/libmlx.so -lSDL2
 NAME = solong
 INCLUDE_DIRS = -I MacroLibX/includes -I includes
@@ -15,7 +15,7 @@ INCLUDE_DIRS = -I MacroLibX/includes -I includes
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(OBJS) $(MLX_FLAGS) -no-pie -o $(NAME)
 
 $(OBJS): objs/%.o: srcs/%.c
 	$(CC) $(FLAGS) $(INCLUDE_DIRS) -c $< -o $@

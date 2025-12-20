@@ -17,7 +17,12 @@ int	main(int ac, char **av)
 {
 	t_vars	vars;
 
-	if (ft_init_vars(&vars) == -1 || ac < 2)
+	if (ac < 2)
+	{
+		write(1, "not enought args\n", 17);
+		return (-1);
+	}
+	if (ft_init_vars(&vars) == -1)
 	{
 		ft_destroy_vars(&vars);
 		return (-1);
