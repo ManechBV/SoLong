@@ -72,12 +72,12 @@ int	ft_check_map(t_map *map)
 int	ft_check_error(int i)
 {
 	if (i == 1)
-		ft_printf("Error\nThe map must be rectangular.");
+		ft_printf("Error\nThe map must be rectangular.\n");
 	if (i == 2)
-		ft_printf("Error\nThe map must contain exactly 1 exit and 1 starting position.");
+		ft_printf("Error\nThe map must contain exactly 1 exit and 1 starting position.\n");
 	if (i == 3)
-		ft_printf("Error\nThe map must contain at least 1 collectible.");
+		ft_printf("Error\nThe map must contain at least 1 collectible.\n");
 	if (i == 4)
-		ft_printf("Error\nmalloc() in ft_new_check() failed Aww maaaan!");
+		ft_printf("Error\nmalloc() in ft_new_check() failed Aww maaaan!\n");
 	return (i);
 }
