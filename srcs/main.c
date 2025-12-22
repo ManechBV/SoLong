@@ -34,22 +34,18 @@ int	main(int ac, char **av)
 		ft_destroy_vars(&vars);
 		return (-1);
 	}
-	/* affiche la map --debug--
-	*/
-	t_map_node	*curr = vars.map->head;
-	while (curr->next != NULL)
-	{
-		ft_printf("%s", curr->line);
-		curr = curr->next;
-	}
-	/*
-	*/
-	if (ft_check_map(vars.map) != 0)
-		return (-1);
-	
-
-	mlx_loop(vars.mlx);
+	if (ft_check_map(vars.map) == 0)
+		mlx_loop(vars.mlx);
 	ft_destroy_vars(&vars);
 	free_map(vars.map);
 	return (0);
 }
+
+/* affiche la map --debug--
+   t_map_node	*curr = vars.map->head;
+   while (curr->next != NULL)
+   {
+   ft_printf("%s", curr->line);
+   curr = curr->next;
+   }
+ */

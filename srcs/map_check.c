@@ -30,17 +30,29 @@ unsigned int	ft_strcountchr(char *s, char c)
 	return (count);
 }
 
-t_check	*ft_new_check(void)
+t_check	*ft_new_check(t_map *map)
 {
-	t_check	*check;
+	t_check			*check;
 
 	check = malloc(sizeof(t_check));
-	if (!check)
+	if (!check || map->w < 1)
 		return (NULL);
 	check->exit = 0;
 	check->start = 0;
 	check->collectible = 0;
+	check->flood_map = malloc(sizeof(int) * ((map->w - 1) * map->h));
+	if (!check->flood_map)
+	{
+		free(check);
+		return (NULL);
+	}
 	return (check);
+}
+
+void	ft_free_check(t_check *check)
+{
+	free(check->flood_map);
+	free(check);
 }
 
 int	ft_check_map(t_map *map)
@@ -48,7 +60,7 @@ int	ft_check_map(t_map *map)
 	t_map_node	*curr;
 	t_check		*check;
 
-	check = ft_new_check();
+	check = ft_new_check(map);
 	if (!check)
 		return (ft_check_error(4));
 	curr = map->head;
@@ -65,7 +77,7 @@ int	ft_check_map(t_map *map)
 		return (ft_check_error(2));
 	if (check->collectible < 1)
 		return (ft_check_error(3));
-	free(check);
+	ft_free_check(check);
 	return (0);
 }
 
