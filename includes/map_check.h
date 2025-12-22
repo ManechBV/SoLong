@@ -26,10 +26,14 @@ typedef struct	s_check
 	unsigned int	*flood_map;
 } t_check;
  
+// map_check.c
 unsigned int	ft_strcountchr(char *s, char c);
 t_check			*ft_new_check(t_map *map);
 void			ft_free_check(t_check *check);
 int				ft_check_map(t_map *map);
 int				ft_check_error(int i);
+
+// map_check_flood.c
+void	ft_copy_map_to_int(unsigned int *tab, t_map_node *head);
 
 #endif

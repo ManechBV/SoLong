@@ -5,7 +5,8 @@ SRCS = srcs/main.c \
 		srcs/map.c \
 		srcs/get_next_line.c \
 		srcs/get_next_line_utils.c \
-		srcs/map_check.c
+		srcs/map_check.c \
+		srcs/map_check_flood.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g 

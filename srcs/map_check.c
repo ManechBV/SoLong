@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 19:32:42 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/22 22:58:08 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,16 @@ t_check	*ft_new_check(t_map *map)
 	check->exit = 0;
 	check->start = 0;
 	check->collectible = 0;
+	//ts dont work idk why
+	/*
 	check->flood_map = malloc(sizeof(int) * ((map->w - 1) * map->h));
 	if (!check->flood_map)
 	{
 		free(check);
 		return (NULL);
 	}
+	ft_copy_map_to_int(check->flood_map, map->head);
+	*/
 	return (check);
 }
 
