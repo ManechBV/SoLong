@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 16:55:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:25:14 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ int	ft_check_map_and_flood(t_map *map)
 	t_check	*check;
 
 	check = ft_new_check(map);
-	if (ft_check_map(map, check) != 0)
+	if (ft_check_map(map, check) != 0 || ft_check_map_border(map) != 0)
 	{
 		ft_free_check(check);
 		return (-1);
 	}
 
+	// show unsigned int tab check_flood
 	unsigned int	i = 0;
 	ft_printf("\ncheck_flood:\n");
 	while (i < (map->w - 1) * map->h)
@@ -60,5 +61,26 @@ int	ft_check_map_and_flood(t_map *map)
 	}
 
 	ft_free_check(check);
+	return (0);
+}
+
+int	ft_check_map_border(t_map *map)
+{
+	t_map_node	*curr;
+
+	curr = map->head;
+	if (ft_strcountchr(curr->line, '1') != map->w - 1)
+		return (ft_check_error(5));
+	while (curr->next != NULL)
+	{
+		if (curr->next->line == NULL)
+		{
+			if (ft_strcountchr(curr->line, '1') != map->w - 1)
+				return (ft_check_error(5));
+		}
+		if (curr->line[0] != '1' || curr->line[map->w - 2] != '1')
+			return (ft_check_error(5));
+		curr = curr->next;
+	}
 	return (0);
 }
