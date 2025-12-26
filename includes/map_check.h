@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:49:36 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 15:56:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 16:52:57 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ typedef struct	s_check
 unsigned int	ft_strcountchr(char *s, char c);
 t_check			*ft_new_check(t_map *map);
 void			ft_free_check(t_check *check);
-int				ft_check_map(t_map *map);
+int				ft_check_map(t_map *map, t_check *check);
 int				ft_check_error(int i);
 
 // map_check_flood.c
 void	ft_copy_map_to_int(unsigned int *tab, t_map *map);
+int		ft_check_map_and_flood(t_map *map);
 
 #endif

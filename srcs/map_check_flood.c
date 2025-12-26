@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 16:01:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 16:55:46 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,29 @@ void	ft_copy_map_to_int(unsigned int *tab, t_map *map)
 		}
 		curr = curr->next;
 	}
+}
+
+int	ft_check_map_and_flood(t_map *map)
+{
+	t_check	*check;
+
+	check = ft_new_check(map);
+	if (ft_check_map(map, check) != 0)
+	{
+		ft_free_check(check);
+		return (-1);
+	}
+
+	unsigned int	i = 0;
+	ft_printf("\ncheck_flood:\n");
+	while (i < (map->w - 1) * map->h)
+	{
+		if (i % (map->w - 1) == 0)
+			ft_printf("\n");
+		ft_printf("%d", check->flood_map[i]);
+		i++;
+	}
+
+	ft_free_check(check);
+	return (0);
 }

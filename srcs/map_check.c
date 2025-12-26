@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 15:53:41 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 16:38:26 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,10 @@ void	ft_free_check(t_check *check)
 	free(check);
 }
 
-int	ft_check_map(t_map *map)
+int	ft_check_map(t_map *map, t_check *check)
 {
 	t_map_node	*curr;
-	t_check		*check;
 
-	check = ft_new_check(map);
 	if (!check)
 		return (ft_check_error(4));
 	curr = map->head;
@@ -78,7 +76,6 @@ int	ft_check_map(t_map *map)
 		return (ft_check_error(2));
 	if (check->collectible < 1)
 		return (ft_check_error(3));
-	ft_free_check(check);
 	return (0);
 }
 
