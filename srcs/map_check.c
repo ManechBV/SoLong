@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 17:49:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 20:26:24 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ int	ft_check_error(int i)
 		ft_printf("Error\nmalloc() in ft_new_check() failed Aww maaaan!\n");
 	if (i == 5)
 		ft_printf("Error\nThe map must be enclosed/surrounded by walls.\n");
+	if (i == 6)
+		ft_printf("Error\nThere must be a valid path.\n");
 	return (i);
 }

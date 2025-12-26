@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 20:00:14 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/26 20:33:10 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	ft_copy_map_to_int(unsigned int *tab, t_map *map)
 
 int	ft_check_map_and_flood(t_map *map)
 {
-	t_check	*check;
+	t_check			*check;
+	unsigned int	i;
 
 	check = ft_new_check(map);
 	if (ft_check_map(map, check) != 0 || ft_check_map_border(map) != 0)
@@ -50,34 +51,41 @@ int	ft_check_map_and_flood(t_map *map)
 		ft_free_check(check);
 		return (-1);
 	}
-
-	// show unsigned int tab check_flood
-	unsigned int	i = 0;
-	ft_printf("\ncheck_flood:\n");
-	while (i < (map->w - 1) * map->h)
-	{
-		if (i % (map->w - 1) == 0)
-			ft_printf("\n");
-		ft_printf("%d", check->flood_map[i]);
-		i++;
-	}
-
 	ft_flood_fill(map, check->flood_map);
-
-	// show unsigned int tab check_flood
 	i = 0;
-	ft_printf("\ncheck_flood:\n");
 	while (i < (map->w - 1) * map->h)
 	{
-		if (i % (map->w - 1) == 0)
-			ft_printf("\n");
-		ft_printf("%d", check->flood_map[i]);
+		if (check->flood_map[i] == 3)
+		{
+			if (check->flood_map[i + 1] == 2)
+				break;
+			else if (check->flood_map[i - 1] == 2)
+				break;
+			else if (check->flood_map[i - (map->w - 1)] == 2)
+				break;
+			else if (check->flood_map[i + (map->w - 1)] == 2)
+				break;
+			return (ft_check_error(6));
+		}
 		i++;
 	}
-
 	ft_free_check(check);
 	return (0);
 }
+
+
+// show unsigned int tab check_flood --debug--
+/*
+unsigned int	i = 0;
+ft_printf("\ncheck_flood:\n");
+while (i < (map->w - 1) * map->h)
+{
+	if (i % (map->w - 1) == 0)
+		ft_printf("\n");
+	ft_printf("%d", check->flood_map[i]);
+	i++;
+}
+*/
 
 int	ft_check_map_border(t_map *map)
 {
