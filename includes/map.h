@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 20:04:48 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 00:21:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2025/12/27 01:47:35 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MAP_H
 
 # include <fcntl.h>
+# include "mlx.h"
 
 typedef struct	s_map_node
 {
@@ -27,6 +28,9 @@ typedef struct	s_map
 	unsigned int	w;
 	unsigned int	h;
 	t_map_node		*head;
+	mlx_image		empty_img;
+	mlx_image		wall_img;
+	mlx_image		exit_img;
 } t_map;
 
 t_map		*ft_new_map(void);
