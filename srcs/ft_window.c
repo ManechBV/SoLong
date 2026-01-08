@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:45:13 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:54:57 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  */
 int	ft_init_vars(t_vars *vars)
 {
-	vars->scale = 0.8;
+	vars->scale = 0.5;
 	vars->mlx = mlx_init();
 	if (vars->mlx == MLX_NULL_HANDLE)
 		return (-1);

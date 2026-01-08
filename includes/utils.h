@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:43:37 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:53:18 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_player
 	int			y;
 	int			w;
 	int			h;
+	char		cell_below;
 } t_player;
 
 typedef struct	s_vars
@@ -46,6 +47,10 @@ void	ft_destroy_vars(t_vars *vars);
 // player.c
 int		ft_init_player(t_vars *vars);
 void	ft_draw_player(t_vars *vars);
+
+// player_move.c
+void	ft_player_move(t_vars *vars, int dir);
+void	ft_player_try_move(t_vars *vars, char *from, char *dest);
 
 // hooks.c
 void	update_loop(void *param);

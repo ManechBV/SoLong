@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:30:36 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:53:35 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:33:35 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_init_player(t_vars *vars)
 	);
 	if (vars->player->img == MLX_NULL_HANDLE)
 		return (-1);
+	vars->player->cell_below = '0';
 	return (0);
 }
 
@@ -41,3 +42,4 @@ void	ft_draw_player(t_vars *vars)
 		vars->scale, vars->scale, 0.0
 	);
 }
+

@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:56:19 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:48:03 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	key_hook(int key, void *param)
 	vars = (t_vars *) param;
 	if (key == 41)
 		mlx_loop_end(vars->mlx);
+	if (key == 79)
+		ft_player_move(vars, 0);
+	else if (key == 80)
+		ft_player_move(vars, 1);
+	else if (key == 81)
+		ft_player_move(vars, 2);
+	else if (key == 82)
+		ft_player_move(vars, 3);
 }
 
 void	window_hook(int event, void *param)

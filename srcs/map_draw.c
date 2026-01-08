@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:52:26 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:40:35 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,16 @@ void	ft_draw_cell(t_vars *vars, char c, unsigned int x, unsigned int y)
 {
 	mlx_image	*img_to_draw;
 
-	if (c == '0' || c == 'C' || c == 'P')
+	if (c == 'P')
+	{
+		vars->player->x = x * (120.0 * vars->scale);
+		vars->player->y = y * (120.0 * vars->scale);
+		if (vars->player->cell_below == 'E')
+			img_to_draw = &vars->map->exit_img;
+		else
+			img_to_draw = &vars->map->empty_img;
+	}
+	if (c == '0' || c == 'C')
 		img_to_draw = &vars->map->empty_img;
 	if (c == '1')
 		img_to_draw = &vars->map->wall_img;
@@ -62,9 +71,4 @@ void	ft_draw_cell(t_vars *vars, char c, unsigned int x, unsigned int y)
 		vars->mlx, vars->win, *img_to_draw,
 		x * (120.0 * vars->scale), y * (120.0 * vars->scale),
 		vars->scale, vars->scale, 0.0);
-	if (c == 'P')
-	{
-		vars->player->x = x * (120.0 * vars->scale);
-		vars->player->y = y * (120.0 * vars->scale);
-	}
 }
