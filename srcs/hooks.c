@@ -6,11 +6,12 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/19 20:00:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:39:51 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include "map_draw.h"
 
 /**
  * @brief	Update loop called through a hook
@@ -21,6 +22,7 @@ void	update_loop(void *param)
 
 	vars = (t_vars *) param;
 	mlx_clear_window(vars->mlx, vars->win, (mlx_color){ .rgba = 0x101010FF });
+	ft_draw_map(vars);
 	ft_draw_player(vars);
 }
 

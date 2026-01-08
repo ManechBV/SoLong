@@ -6,12 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 16:58:05 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:32:43 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "utils.h"
+#include "map_draw.h"
 #include "ft_printf.h"
 
 int	main(int ac, char **av)
@@ -34,6 +35,8 @@ int	main(int ac, char **av)
 		ft_destroy_vars(&vars);
 		return (-1);
 	}
+
+	ft_load_map_img(&vars);
 
 	ft_printf("\nvars->map:\n");
 	t_map_node	*curr = vars.map->head;
