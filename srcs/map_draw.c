@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/07 15:08:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:52:26 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_draw_map(t_vars *vars)
 	unsigned int	x;
 	unsigned int	y;
 	t_map_node		*curr;
-	mlx_image		*img_to_draw;
 
 	curr = vars->map->head;
 	x = 0;
@@ -39,20 +38,33 @@ void	ft_draw_map(t_vars *vars)
 		i = 0;
 		while (curr->line[i] != 0 && curr->line[i] != '\n')
 		{
-			if (curr->line[i] == '0' || curr->line[i] == 'C')
-				img_to_draw = &vars->map->empty_img;
-			if (curr->line[i] == '1')
-				img_to_draw = &vars->map->wall_img;
-			if (curr->line[i] == 'E')
-				img_to_draw = &vars->map->exit_img;
-			mlx_put_transformed_image_to_window(
-				vars->mlx, vars->win, *img_to_draw,
-				x * 60, y * 60, 0.5, 0.5, 0.0);
+			ft_draw_cell(vars, curr->line[i], x, y);
 			x++;
 			i++;
 		}
 		x = 0;
 		y++;
 		curr = curr->next;
+	}
+}
+
+void	ft_draw_cell(t_vars *vars, char c, unsigned int x, unsigned int y)
+{
+	mlx_image	*img_to_draw;
+
+	if (c == '0' || c == 'C' || c == 'P')
+		img_to_draw = &vars->map->empty_img;
+	if (c == '1')
+		img_to_draw = &vars->map->wall_img;
+	if (c == 'E')
+		img_to_draw = &vars->map->exit_img;
+	mlx_put_transformed_image_to_window(
+		vars->mlx, vars->win, *img_to_draw,
+		x * (120.0 * vars->scale), y * (120.0 * vars->scale),
+		vars->scale, vars->scale, 0.0);
+	if (c == 'P')
+	{
+		vars->player->x = x * (120.0 * vars->scale);
+		vars->player->y = y * (120.0 * vars->scale);
 	}
 }

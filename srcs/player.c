@@ -6,11 +6,12 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:30:36 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/19 20:00:20 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:53:35 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include "mlx_extended.h"
 
 int	ft_init_player(t_vars *vars)
 {
@@ -34,8 +35,9 @@ int	ft_init_player(t_vars *vars)
 
 void	ft_draw_player(t_vars *vars)
 {
-	mlx_put_image_to_window(
+	mlx_put_transformed_image_to_window(
 		vars->mlx, vars->win, vars->player->img,
-		vars->player->x, vars->player->y
+		vars->player->x, vars->player->y,
+		vars->scale, vars->scale, 0.0
 	);
 }
