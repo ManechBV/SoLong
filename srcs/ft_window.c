@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 16:54:57 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:25:01 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ int	ft_init_vars(t_vars *vars)
 void	ft_init_vars_info(t_vars *vars)
 {
 	vars->info.title = "Hello MacroLibX";
-	vars->info.width = 1280;
-	vars->info.height = 720;
+	vars->info.width = 1920;
+	vars->info.height = 1080;
 	vars->info.is_fullscreen = false;
-	vars->info.is_resizable = false;
+	vars->info.is_resizable = true;
 	vars->info.render_target = NULL;
 }
 

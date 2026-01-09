@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 16:40:35 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:12:54 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 
 void	ft_load_map_img(t_vars *vars)
 {
+	unsigned int	win_w;
+	unsigned int	win_h;
+
 	vars->map->empty_img = mlx_new_image_from_file(
 		vars->mlx, "res/grass.png", NULL, NULL);
 	vars->map->wall_img = mlx_new_image_from_file(
 		vars->mlx, "res/mure.png", NULL, NULL);
 	vars->map->exit_img = mlx_new_image_from_file(
 		vars->mlx, "res/exit.png", NULL, NULL);
+	win_w = (unsigned int) vars->info.width;
+	win_h = (unsigned int) vars->info.height;
+	vars->scale = (float)ft_greater(win_w, win_h) / (float)ft_greater(vars->map->w, vars->map->h);
+	vars->scale /= 120.0;
 }
 
 void	ft_draw_map(t_vars *vars)

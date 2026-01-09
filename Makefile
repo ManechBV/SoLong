@@ -9,7 +9,8 @@ SRCS = srcs/main.c \
 		srcs/map_check_flood.c \
 		srcs/map_draw.c \
 		srcs/ft_strichr.c \
-		srcs/player_move.c
+		srcs/player_move.c \
+		srcs/ft_greater.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g 

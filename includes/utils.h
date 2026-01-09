@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 16:53:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:04:47 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void	ft_player_try_move(t_vars *vars, char *from, char *dest);
 void	update_loop(void *param);
 void	key_hook(int key, void *param);
 void	window_hook(int event, void *param);
+
+// ft_greater.c
+unsigned int	ft_greater(unsigned int a, unsigned int b);
 
 #endif
