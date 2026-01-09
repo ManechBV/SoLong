@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:30:36 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 16:33:35 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:11:50 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_init_player(t_vars *vars)
 		return (-1);
 	vars->player->x = 0;
 	vars->player->y = 0;
+	vars->player->draw_x = 0;
+	vars->player->draw_y = 0;
 	vars->player->w = 0;
 	vars->player->h = 0;
 	vars->player->img = mlx_new_image_from_file(
@@ -37,9 +39,9 @@ int	ft_init_player(t_vars *vars)
 void	ft_draw_player(t_vars *vars)
 {
 	mlx_put_transformed_image_to_window(
-		vars->mlx, vars->win, vars->player->img,
-		vars->player->x, vars->player->y,
-		vars->scale, vars->scale, 0.0
-	);
+			vars->mlx, vars->win, vars->player->img,
+			vars->player->draw_x, vars->player->draw_y,
+			vars->scale, vars->scale, 0.0
+			);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:38:07 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:58:08 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct	s_player
 	int			y;
 	int			w;
 	int			h;
+	int			draw_x;
+	int			draw_y;
 	char		cell_below;
 } t_player;
 

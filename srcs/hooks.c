@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:22:06 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:19:10 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 void	update_loop(void *param)
 {
 	t_vars	*vars;
+	int		smooth;
 
 	vars = (t_vars *) param;
 	mlx_clear_window(vars->mlx, vars->win, (mlx_color){ .rgba = 0x101010FF });
 	ft_draw_map(vars);
+	smooth = 4;
+	vars->player->draw_x += (vars->player->x - vars->player->draw_x) / smooth;
+	vars->player->draw_y += (vars->player->y - vars->player->draw_y) / smooth;
 	ft_draw_player(vars);
 }
 
