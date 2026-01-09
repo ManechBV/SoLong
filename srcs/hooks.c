@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 15:19:10 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:32:38 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ void	key_hook(int key, void *param)
 		ft_player_move(vars, 2);
 	else if (key == 82)
 		ft_player_move(vars, 3);
+	if (vars->player->cell_below == 'C')
+	{
+		vars->player->cell_below = '0';
+	}
 }
 
 void	window_hook(int event, void *param)

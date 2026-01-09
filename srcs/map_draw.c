@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:49:32 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:28:07 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	ft_load_map_img(t_vars *vars)
 		vars->mlx, "res/exit.png", NULL, NULL);
 	win_w = (unsigned int) vars->info.width;
 	win_h = (unsigned int) vars->info.height;
-	vars->scale = (float)ft_greater(win_w, win_h) / (float)ft_greater(vars->map->w, vars->map->h);
-	vars->scale /= 120.0;
+	vars->scale = (float)ft_greater(win_w, win_h);
+	vars->scale /= (float) ft_greater(vars->map->w, vars->map->h) - 1;
+	vars->scale = vars->scale / 120.0;
 }
 
 void	ft_draw_map(t_vars *vars)
