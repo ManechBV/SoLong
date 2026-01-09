@@ -6,18 +6,28 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:12:54 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:49:32 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_draw.h"
 #include "mlx_extended.h"
 
+void	ft_draw_img(t_vars *vars, mlx_image *img, unsigned int x, unsigned int y)
+{
+	mlx_put_transformed_image_to_window(
+		vars->mlx, vars->win, *img,
+		x * (120.0 * vars->scale), y * (120.0 * vars->scale),
+		vars->scale, vars->scale, 0.0);
+}
+
 void	ft_load_map_img(t_vars *vars)
 {
 	unsigned int	win_w;
 	unsigned int	win_h;
 
+	vars->map->collec_img = mlx_new_image_from_file(
+		vars->mlx, "res/coin.png", NULL, NULL);
 	vars->map->empty_img = mlx_new_image_from_file(
 		vars->mlx, "res/grass.png", NULL, NULL);
 	vars->map->wall_img = mlx_new_image_from_file(
@@ -74,8 +84,7 @@ void	ft_draw_cell(t_vars *vars, char c, unsigned int x, unsigned int y)
 		img_to_draw = &vars->map->wall_img;
 	if (c == 'E')
 		img_to_draw = &vars->map->exit_img;
-	mlx_put_transformed_image_to_window(
-		vars->mlx, vars->win, *img_to_draw,
-		x * (120.0 * vars->scale), y * (120.0 * vars->scale),
-		vars->scale, vars->scale, 0.0);
+	ft_draw_img(vars, img_to_draw, x, y);
+	if (c == 'C')
+		ft_draw_img(vars, &vars->map->collec_img, x, y);
 }

@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 20:04:48 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/27 01:47:35 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:44:32 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_map
 	unsigned int	w;
 	unsigned int	h;
 	t_map_node		*head;
+	mlx_image		collec_img;
 	mlx_image		empty_img;
 	mlx_image		wall_img;
 	mlx_image		exit_img;

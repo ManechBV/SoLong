@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:04:47 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:38:07 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,8 @@ void	window_hook(int event, void *param);
 
 // ft_greater.c
 unsigned int	ft_greater(unsigned int a, unsigned int b);
+
+// map_draw.c
+void	ft_draw_img(t_vars *vars, mlx_image *img, unsigned int x, unsigned int y);
 
 #endif

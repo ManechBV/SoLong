@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:25:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 12:50:55 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:37:14 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # include "map.h"
 # include "utils.h"
-
-typedef struct	s_draw_map_vars
-{
-	
-} t_draw_map_vars;
 
 void	ft_load_map_img(t_vars *vars);
 void	ft_draw_map(t_vars *vars);

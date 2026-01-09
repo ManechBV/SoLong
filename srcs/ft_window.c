@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 14:25:01 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:43:12 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	ft_destroy_vars(t_vars *vars)
 		mlx_destroy_image(vars->mlx, vars->player->img);
 		free(vars->player);
 	}
+	mlx_destroy_image(vars->mlx, vars->map->collec_img);
 	mlx_destroy_image(vars->mlx, vars->map->empty_img);
 	mlx_destroy_image(vars->mlx, vars->map->wall_img);
 	mlx_destroy_image(vars->mlx, vars->map->exit_img);
