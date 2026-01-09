@@ -6,12 +6,14 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 17:32:38 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 18:15:31 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "map_draw.h"
+
+#include <stdio.h>
 
 /**
  * @brief	Update loop called through a hook
@@ -28,6 +30,8 @@ void	update_loop(void *param)
 	vars->player->draw_x += (vars->player->x - vars->player->draw_x) / smooth;
 	vars->player->draw_y += (vars->player->y - vars->player->draw_y) / smooth;
 	ft_draw_player(vars);
+	if (vars->player->cell_below == 'E' && vars->player->can_exit == 0)
+		mlx_loop_end(vars->mlx);
 }
 
 void	key_hook(int key, void *param)
@@ -48,6 +52,8 @@ void	key_hook(int key, void *param)
 	if (vars->player->cell_below == 'C')
 	{
 		vars->player->cell_below = '0';
+		if (ft_count_collec(vars) == 0)
+			vars->player->can_exit = 0;
 	}
 }
 

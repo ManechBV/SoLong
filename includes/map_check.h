@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:49:36 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 20:02:41 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/09 18:04:32 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int				ft_check_map_and_flood(t_map *map);
 int				ft_check_map_border(t_map *map);
 void			ft_flood_fill(t_map *map, unsigned int *tab);
 unsigned int	ft_nb_of_empty(t_map *map, unsigned int *tab);
+
 
 #endif
