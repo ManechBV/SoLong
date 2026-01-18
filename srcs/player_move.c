@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:58:44 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/08 16:59:15 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/18 18:51:13 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ void	ft_player_try_move(t_vars *vars, char *from, char *dest)
 	*dest = 'P';
 	*from = vars->player->cell_below;
 	vars->player->cell_below = tmp;
+	vars->moves += 1;
+	ft_printf("\nmoves: %d", vars->moves);
 }

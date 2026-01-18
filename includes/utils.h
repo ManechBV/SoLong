@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:26:46 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/18 17:46:17 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/18 18:53:55 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_vars
 	t_player				*player;
 	t_map					*map;
 	float					scale;
+	int						moves;
 } t_vars;
 
 // ft_window.c

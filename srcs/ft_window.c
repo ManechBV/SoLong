@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/09 17:37:04 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/18 19:12:52 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 int	ft_init_vars(t_vars *vars)
 {
 	vars->scale = 0.5;
+	vars->moves = 0;
 	vars->mlx = mlx_init();
 	if (vars->mlx == MLX_NULL_HANDLE)
 		return (-1);
@@ -35,6 +36,7 @@ int	ft_init_vars(t_vars *vars)
 	mlx_add_loop_hook(vars->mlx, update_loop, vars);
 	mlx_on_event(vars->mlx, vars->win, MLX_KEYDOWN, key_hook, vars);
 	mlx_on_event(vars->mlx, vars->win, MLX_WINDOW_EVENT, window_hook, vars);
+	mlx_set_font(vars->mlx, "res/font.ttf");
 	return (0);
 }
 
