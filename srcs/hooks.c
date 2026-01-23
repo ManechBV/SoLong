@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/18 19:11:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/23 01:07:29 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	update_loop(void *param)
 	vars->player->draw_y += (vars->player->y - vars->player->draw_y) / smooth;
 	ft_draw_player(vars);
 	moves_str = ft_itoa(vars->moves);
-	mlx_string_put(vars->mlx, vars->win, 0, 0,
-		(mlx_color){ .rgba = 0x000000FF }, moves_str);
+	mlx_string_put(vars->mlx, vars->win, vars->info.width / 2, vars->info.height - 40,
+		(mlx_color) { .rgba = 0x6060FFFF }, moves_str);
 	free(moves_str);
 	if (vars->player->cell_below == 'E' && vars->player->can_exit == 0)
 		mlx_loop_end(vars->mlx);

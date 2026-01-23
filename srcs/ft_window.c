@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/18 19:12:52 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/23 00:59:41 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_init_vars(t_vars *vars)
 	mlx_add_loop_hook(vars->mlx, update_loop, vars);
 	mlx_on_event(vars->mlx, vars->win, MLX_KEYDOWN, key_hook, vars);
 	mlx_on_event(vars->mlx, vars->win, MLX_WINDOW_EVENT, window_hook, vars);
-	mlx_set_font(vars->mlx, "res/font.ttf");
+	mlx_set_font_scale(vars->mlx, "res/font.ttf", 69.0);
 	return (0);
 }
 
@@ -48,8 +48,8 @@ int	ft_init_vars(t_vars *vars)
 void	ft_init_vars_info(t_vars *vars)
 {
 	vars->info.title = "Hello MacroLibX";
-	vars->info.width = 1920;
-	vars->info.height = 1080;
+	vars->info.width = 1280;
+	vars->info.height = 720;
 	vars->info.is_fullscreen = false;
 	vars->info.is_resizable = true;
 	vars->info.render_target = NULL;

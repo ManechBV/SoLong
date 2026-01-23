@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/18 19:08:54 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/23 00:49:12 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_draw_map(t_vars *vars)
 		i = 0;
 		while (curr->line[i] != 0 && curr->line[i] != '\n')
 		{
-			ft_draw_cell(vars, curr->line[i], x + 4, y + 4);
+			ft_draw_cell(vars, curr->line[i], x , y );
 			x++;
 			i++;
 		}
