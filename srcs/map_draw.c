@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 20:19:53 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:18:06 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_load_map_img(t_vars *vars)
 		vars->scale = scale_x / 15.0;
 	else
 		vars->scale = scale_y / 15.0;
-	vars->scale = (float)((int)(( vars->scale ) * 10)) / 10.0;
+	vars->scale = (float)((int)((vars->scale) * 10) / 10.0);
 	vars->timer = 0;
 	vars->timer_ceil = 20;
 	vars->coin_frame = 0;
@@ -67,7 +67,7 @@ void	ft_draw_map(t_vars *vars)
 		i = 0;
 		while (curr->line[i] != 0 && curr->line[i] != '\n')
 		{
-			ft_draw_cell(vars, curr->line[i], x , y );
+			ft_draw_cell(vars, curr->line[i], x, y);
 			x++;
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 20:13:02 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:24:25 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ int	ft_check_map_and_flood(t_map *map)
 
 	check = ft_new_check(map);
 	if (ft_check_map(map, check) != 0 || ft_check_map_border(map) != 0)
-	{
-		ft_free_check(check);
-		return (-1);
-	}
+		return (ft_free_check(check, -1));
 	ft_flood_fill(map, check->flood_map);
 	i = 0;
 	while (i < (map->w - 1) * map->h)
@@ -69,8 +66,7 @@ int	ft_check_map_and_flood(t_map *map)
 		}
 		i++;
 	}
-	ft_free_check(check);
-	return (0);
+	return (ft_free_check(check, 0));
 }
 
 int	ft_check_map_border(t_map *map)

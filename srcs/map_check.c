@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 20:09:40 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 22:25:15 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ t_check	*ft_new_check(t_map *map)
 	return (check);
 }
 
-void	ft_free_check(t_check *check)
+int	ft_free_check(t_check *check, int ret)
 {
 	free(check->flood_map);
 	free(check);
+	return (ret);
 }
 
 int	ft_check_map(t_map *map, t_check *check)
