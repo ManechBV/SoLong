@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 23:27:09 by mabenois          #+#    #+#             */
-/*   Updated: 2025/10/25 20:33:27 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 19:19:09 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ char	*ft_itoa(int n)
 	if (is_neg == 1)
 		res[0] = '-';
 	ft_fill_res(&res, n, size, is_neg);
-	res[size + 1] = '\0';
+	res[size] = '\0';
 	return (res);
 }

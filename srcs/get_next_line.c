@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:03:26 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/20 18:45:59 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:01:32 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ char	*remove_line_from_stash(char *stash)
 {
 	char	*new_stash;
 	int		i;
+	size_t	len;
 
 	if (!stash)
 		return (NULL);
@@ -126,7 +127,8 @@ char	*remove_line_from_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	new_stash = ft_strlcpy_gnl(new_stash, stash + i, ft_strlen_gnl(stash) - i + 1);
+	len = ft_strlen_gnl(stash) - i + 1;
+	new_stash = ft_strlcpy_gnl(new_stash, stash + i, len);
 	free(stash);
 	return (new_stash);
 }

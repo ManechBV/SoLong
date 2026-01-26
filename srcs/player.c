@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 19:30:36 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/23 01:29:25 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:21:43 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ int	ft_init_player(t_vars *vars)
 	vars->player->h = 0;
 	vars->player->can_exit = 1;
 	vars->player->img = mlx_new_image_from_file(
-		vars->mlx,
-		"res/PINGOUIN100x100.png",
-		&vars->player->w,
-		&vars->player->h
-	);
+			vars->mlx,
+			"res/pinkouin.png",
+			&vars->player->w,
+			&vars->player->h);
 	if (vars->player->img == MLX_NULL_HANDLE)
 		return (-1);
 	vars->player->cell_below = '0';
@@ -40,9 +39,7 @@ int	ft_init_player(t_vars *vars)
 void	ft_draw_player(t_vars *vars)
 {
 	mlx_put_transformed_image_to_window(
-			vars->mlx, vars->win, vars->player->img,
-			vars->player->draw_x, vars->player->draw_y,
-			vars->scale, vars->scale, 0.0
-			);
+		vars->mlx, vars->win, vars->player->img,
+		vars->player->draw_x, vars->player->draw_y,
+		vars->scale, vars->scale, 0.0);
 }
-

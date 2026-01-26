@@ -6,14 +6,12 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:45 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/23 01:07:29 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:31:12 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "map_draw.h"
-
-#include <stdio.h>
 
 /**
  * @brief	Update loop called through a hook
@@ -25,18 +23,20 @@ void	update_loop(void *param)
 	char	*moves_str;
 
 	vars = (t_vars *) param;
-	mlx_clear_window(vars->mlx, vars->win, (mlx_color){ .rgba = 0x101010FF });
+	mlx_clear_window(vars->mlx, vars->win, (mlx_color){.rgba = 0x101010FF});
 	ft_draw_map(vars);
 	smooth = 4;
 	vars->player->draw_x += (vars->player->x - vars->player->draw_x) / smooth;
 	vars->player->draw_y += (vars->player->y - vars->player->draw_y) / smooth;
 	ft_draw_player(vars);
 	moves_str = ft_itoa(vars->moves);
-	mlx_string_put(vars->mlx, vars->win, vars->info.width / 2, vars->info.height - 40,
-		(mlx_color) { .rgba = 0x6060FFFF }, moves_str);
-	free(moves_str);
+	mlx_string_put(
+		vars->mlx, vars->win,
+		vars->info.width / 2, vars->info.height - 40,
+		(mlx_color){.rgba = 0x6060FFFF}, moves_str);
 	if (vars->player->cell_below == 'E' && vars->player->can_exit == 0)
 		mlx_loop_end(vars->mlx);
+	free(moves_str);
 }
 
 void	key_hook(int key, void *param)

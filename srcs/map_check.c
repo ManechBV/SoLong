@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:34:56 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 20:26:24 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:09:40 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_check_error(int i)
 	if (i == 1)
 		ft_printf("Error\nThe map must be rectangular.\n");
 	if (i == 2)
-		ft_printf("Error\nThe map must contain exactly 1 exit and 1 starting position.\n");
+		ft_printf("Error\nThe map must contain 1 exit and 1 start.\n");
 	if (i == 3)
 		ft_printf("Error\nThe map must contain at least 1 collectible.\n");
 	if (i == 4)

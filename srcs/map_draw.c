@@ -6,18 +6,20 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 01:32:10 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/23 00:49:12 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:19:53 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_draw.h"
 #include "mlx_extended.h"
 
-void	ft_draw_img(t_vars *vars, mlx_image *img, unsigned int x, unsigned int y)
+void	ft_draw_img(
+	t_vars *vars, mlx_image *img,
+	unsigned int x, unsigned int y)
 {
 	mlx_put_transformed_image_to_window(
 		vars->mlx, vars->win, *img,
-		x * (120.0 * vars->scale), y * (120.0 * vars->scale),
+		x * (15.0 * vars->scale), y * (15.0 * vars->scale),
 		vars->scale, vars->scale, 0.0);
 }
 
@@ -28,23 +30,26 @@ void	ft_load_map_img(t_vars *vars)
 	float			scale_x;
 	float			scale_y;
 
-	vars->map->collec_img = mlx_new_image_from_file(
-		vars->mlx, "res/coin.png", NULL, NULL);
 	vars->map->empty_img = mlx_new_image_from_file(
-		vars->mlx, "res/grass.png", NULL, NULL);
+			vars->mlx, "res/grass.png", NULL, NULL);
 	vars->map->wall_img = mlx_new_image_from_file(
-		vars->mlx, "res/mure.png", NULL, NULL);
+			vars->mlx, "res/mure.png", NULL, NULL);
 	vars->map->exit_img = mlx_new_image_from_file(
-		vars->mlx, "res/exit.png", NULL, NULL);
+			vars->mlx, "res/exit.png", NULL, NULL);
+	vars->map->collec_img = mlx_new_image_from_file(
+			vars->mlx, "res/coin.png", NULL, NULL);
 	win_w = (unsigned int) vars->info.width;
 	win_h = (unsigned int) vars->info.height;
 	scale_x = ((float) win_w) / ((float) vars->map->w) - 1;
 	scale_y = ((float) win_h) / ((float) vars->map->h);
 	if (scale_x < scale_y)
-		vars->scale = scale_x / 120.0;
+		vars->scale = scale_x / 15.0;
 	else
-		vars->scale = scale_y / 120.0;
-	vars->scale = (float) ((int) ((vars->scale) * 10)) / 10.0;
+		vars->scale = scale_y / 15.0;
+	vars->scale = (float)((int)(( vars->scale ) * 10)) / 10.0;
+	vars->timer = 0;
+	vars->timer_ceil = 20;
+	vars->coin_frame = 0;
 }
 
 void	ft_draw_map(t_vars *vars)
@@ -78,8 +83,8 @@ void	ft_draw_cell(t_vars *vars, char c, unsigned int x, unsigned int y)
 
 	if (c == 'P')
 	{
-		vars->player->x = x * (120.0 * vars->scale);
-		vars->player->y = y * (120.0 * vars->scale);
+		vars->player->x = x * (15.0 * vars->scale);
+		vars->player->y = y * (15.0 * vars->scale);
 		if (vars->player->cell_below == 'E')
 			img_to_draw = &vars->map->exit_img;
 		else

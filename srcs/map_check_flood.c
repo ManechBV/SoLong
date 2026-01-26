@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2025/12/26 20:33:10 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:13:02 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int	ft_check_map_and_flood(t_map *map)
 		if (check->flood_map[i] == 3)
 		{
 			if (check->flood_map[i + 1] == 2)
-				break;
+				break ;
 			else if (check->flood_map[i - 1] == 2)
-				break;
+				break ;
 			else if (check->flood_map[i - (map->w - 1)] == 2)
-				break;
+				break ;
 			else if (check->flood_map[i + (map->w - 1)] == 2)
-				break;
+				break ;
 			return (ft_check_error(6));
 		}
 		i++;
@@ -72,20 +72,6 @@ int	ft_check_map_and_flood(t_map *map)
 	ft_free_check(check);
 	return (0);
 }
-
-
-// show unsigned int tab check_flood --debug--
-/*
-unsigned int	i = 0;
-ft_printf("\ncheck_flood:\n");
-while (i < (map->w - 1) * map->h)
-{
-	if (i % (map->w - 1) == 0)
-		ft_printf("\n");
-	ft_printf("%d", check->flood_map[i]);
-	i++;
-}
-*/
 
 int	ft_check_map_border(t_map *map)
 {
@@ -133,7 +119,7 @@ void	ft_flood_fill(t_map *map, unsigned int *tab)
 			i++;
 		}
 		if (ft_nb_of_empty(map, tab) == empty_left)
-			break;
+			break ;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:58:44 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/18 18:51:13 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:22:05 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_player_move(t_vars *vars, int dir)
 		}
 		curr = curr->next;
 	}
-
 }
 
 void	ft_player_try_move(t_vars *vars, char *from, char *dest)
@@ -51,5 +50,4 @@ void	ft_player_try_move(t_vars *vars, char *from, char *dest)
 	*from = vars->player->cell_below;
 	vars->player->cell_below = tmp;
 	vars->moves += 1;
-	ft_printf("\nmoves: %d", vars->moves);
 }
