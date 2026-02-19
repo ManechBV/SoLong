@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:07:51 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/19 19:55:15 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/19 20:09:11 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	ft_load_map_img(&vars);
 	if (map_check_iregularity(vars.map) == 0)
 	{
-		if (ft_check_map_and_flood(vars.map) == 0 && ft_check_collec(vars.map) == 0)
+		if (ft_check_map_and_flood(vars.map) == 0 && checkcollec(vars.map) == 0)
 			mlx_loop(vars.mlx);
 	}
 	ft_destroy_vars(&vars);

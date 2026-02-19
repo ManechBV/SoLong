@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:49:36 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/09 18:30:56 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/19 20:09:35 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void			ft_flood_fill(t_map *map, unsigned int *tab);
 unsigned int	ft_nb_of_empty(t_map *map, unsigned int *tab);
 
 // map_check_collec.c
-int				ft_check_collec(t_map *map);
+int				checkcollec(t_map *map);
 
 #endif

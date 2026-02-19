@@ -39,13 +39,13 @@ mlx:
 re: fclean all
 
 clean:
+	rm -rf $(OBJS)
 	make clean -C srcs/ft_printf
 	make clean -C MacroLibX
-	rm -rf $(OBJS)
 
 fclean:
+	rm -rf $(NAME)
 	make fclean -C srcs/ft_printf
 	make fclean -C MacroLibX
-	rm -rf $(NAME)
 
 .PHONY: all re clean fclean ft_printf mlx make_objs_dir

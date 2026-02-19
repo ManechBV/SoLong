@@ -6,13 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 00:14:08 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/09 18:31:17 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/19 20:09:23 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_check.h"
 
-int	ft_check_collec(t_map *map)
+int	checkcollec(t_map *map)
 {
 	t_check		*check;
 	t_map_node	*curr;
