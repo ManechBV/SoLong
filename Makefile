@@ -10,18 +10,22 @@ SRCS = srcs/main.c \
 		srcs/map_draw.c \
 		srcs/ft_strichr.c \
 		srcs/player_move.c \
-		srcs/ft_count_collec.c
+		srcs/ft_count_collec.c \
+		srcs/map_check_collec.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
-FLAGS = -Wall -Wextra -Werror -g 
+FLAGS = -g -Wall -Wextra -Werror
 MLX_FLAGS = MacroLibX/libmlx.so -lSDL2
 NAME = solong
 INCLUDE_DIRS = -I MacroLibX/includes -I includes
 
-all: $(NAME)
+all: make_objs_dir $(NAME)
 
-$(NAME): ft_printf $(OBJS) 
-	$(CC) $(OBJS) srcs/ft_printf/libftprintf.a $(MLX_FLAGS) $(INCLUDE_DIRS) -o $(NAME)
+make_objs_dir:
+	mkdir -p objs
+
+$(NAME): mlx ft_printf $(OBJS) 
+	$(CC) $(FLAGS) $(OBJS) srcs/ft_printf/libftprintf.a $(MLX_FLAGS) $(INCLUDE_DIRS) -o $(NAME)
 
 $(OBJS): objs/%.o: srcs/%.c
 	$(CC) $(FLAGS) $(INCLUDE_DIRS) -c $< -o $@
@@ -29,14 +33,19 @@ $(OBJS): objs/%.o: srcs/%.c
 ft_printf:
 	make -C srcs/ft_printf
 
+mlx:
+	make -j -C MacroLibX
+
 re: fclean all
 
 clean:
 	make clean -C srcs/ft_printf
+	make clean -C MacroLibX
 	rm -rf $(OBJS)
 
 fclean:
 	make fclean -C srcs/ft_printf
+	make fclean -C MacroLibX
 	rm -rf $(NAME)
 
-.PHONY: all re clean fclean ft_printf
+.PHONY: all re clean fclean ft_printf mlx make_objs_dir

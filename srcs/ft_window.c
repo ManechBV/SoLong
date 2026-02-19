@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:30:52 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 19:56:44 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/07 00:50:45 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,14 @@ void	ft_destroy_vars(t_vars *vars)
 	}
 	if (vars->map)
 	{
-		mlx_destroy_image(vars->mlx, vars->map->collec_img);
-		mlx_destroy_image(vars->mlx, vars->map->empty_img);
-		mlx_destroy_image(vars->mlx, vars->map->wall_img);
-		mlx_destroy_image(vars->mlx, vars->map->exit_img);
+		if (vars->map->collec_img)
+			mlx_destroy_image(vars->mlx, vars->map->collec_img);
+		if (vars->map->empty_img)
+			mlx_destroy_image(vars->mlx, vars->map->empty_img);
+		if (vars->map->wall_img)
+			mlx_destroy_image(vars->mlx, vars->map->wall_img);
+		if (vars->map->exit_img)
+			mlx_destroy_image(vars->mlx, vars->map->exit_img);
 	}
 	if (vars->win)
 		mlx_destroy_window(vars->mlx, vars->win);

@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 22:18:19 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 22:24:25 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/19 19:33:50 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_check_map_and_flood(t_map *map)
 				break ;
 			else if (check->flood_map[i + (map->w - 1)] == 2)
 				break ;
-			return (ft_check_error(6));
+			return (ft_check_error(ft_free_check(check, 6)));
 		}
 		i++;
 	}

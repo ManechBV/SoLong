@@ -1,2 +1,2 @@
 #!/bin/bash
-valgrind --suppressions=MacroLibX/valgrind.supp --leak-check=full ./solong $1
+valgrind --leak-check=full	--show-leak-kinds=all --suppressions=MacroLibX/valgrind.supp ./solong $1
